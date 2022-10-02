@@ -7,17 +7,18 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.guesswhatgame.GameWindowController"
-            prefHeight="300.0" prefWidth="300.0">
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.guesswhatgame.GameWindowController"
+      prefHeight="300.0" prefWidth="300.0">
     <VBox alignment="CENTER">
         <Label fx:id="numberOfAttempts" text="Let's play!"/>
         <Label fx:id="answer" visible="false"/>
-        <TextField fx:id="guesses" text="Enter your number" />
-        <Button fx:id="check" text="ClickMe!" onMousePressed="#check"/>
+        <TextField fx:id="guesses" />
+        <Button fx:id="check" text="Try to guess!" onMousePressed="#check"/>
+        <Button fx:id="exit" text="Return to main menu" onMousePressed="#exit" visible="false"/>
         <HBox alignment="CENTER">
-            <Label fx:id="moreThan" text="Number is more than: "/>
-            <Label fx:id="lessThan" text="Number is less than: "/>
+            <Label fx:id="moreThan"/>
+            <Label fx:id="lessThan"/>
         </HBox>
     </VBox>
 </VBox>

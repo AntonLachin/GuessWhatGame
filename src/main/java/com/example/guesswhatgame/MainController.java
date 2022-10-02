@@ -55,8 +55,11 @@ public class MainController {
 
     @FXML
     private Button launch;
+
     @FXML
     private Label welcomeText;
+    @FXML
+    private Label wrongInput;
 
     @FXML
     protected void onStartButtonClick() {
@@ -96,13 +99,13 @@ public class MainController {
 
     protected boolean validate() {
         if (conditions() == 0 && difficulty() == -1) {
-            welcomeText.setText("Chose difficulty and range!");
+            wrongInput.setText("Chose difficulty and range!");
             return false;
         } else if (difficulty() == -1) {
-            welcomeText.setText("Chose difficulty!");
+            wrongInput.setText("Chose difficulty!");
             return false;
         } else if (conditions() == 0) {
-            welcomeText.setText("Chose range!");
+            wrongInput.setText("Chose range!");
             return false;
         }
         return true;

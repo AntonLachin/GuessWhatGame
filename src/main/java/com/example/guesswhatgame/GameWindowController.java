@@ -1,9 +1,12 @@
 package com.example.guesswhatgame;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class GameWindowController {
 
@@ -18,6 +21,8 @@ public class GameWindowController {
 
     @FXML
     private Button check;
+    @FXML
+    private Button exit;
 
     @FXML
     private TextField guesses;
@@ -45,6 +50,8 @@ public class GameWindowController {
         if (validate()) {
             if (Integer.parseInt(guesses.getText()) == randomNum) {
                 numberOfAttempts.setText("YOU WON!!!");
+                check.setVisible(false);
+                exit.setVisible(true);
             } else if (Integer.parseInt(guesses.getText()) < randomNum) {
                 if (min < Integer.parseInt(guesses.getText())) {
                     min = Integer.parseInt(guesses.getText());
@@ -71,12 +78,18 @@ public class GameWindowController {
         } else {
             numberOfAttempts.setText("You lose!!!");
             answer.setVisible(true);
+            check.setVisible(false);
+            exit.setVisible(true);
         }
     }
 
     public boolean validate() {
-        if (numOfAtt != 1) {
+        if (numOfAtt != 0) {
             return true;
         } else return false;
+    }
+
+    public void exit(){
+        ((Stage)((check).getScene().getWindow())).close();
     }
 }
